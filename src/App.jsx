@@ -4,6 +4,7 @@ import './App.css';
 function App() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getProducts = async () => {
@@ -14,6 +15,7 @@ function App() {
         setProducts(data);
       } catch (error) {
         console.error('Error fetching products:', error);
+        setError(true);
       } finally {
         setLoading(false);
       }
@@ -26,11 +28,18 @@ function App() {
     <>
       <main>
         <section className="py-4">
-          <div className="container">
+          <div className="container d-flex flex-column align-items-center gap-2">
             <h1>Chanchishop</h1>
+            {error && (
+              <div class="alert alert-danger" role="alert">
+                Error fetching products.
+              </div>
+            )}
             {loading ? (
-              <div className="spinner-grow text-primary" role="status">
-                <span className="visually-hidden">Loading...</span>
+              <div class="d-flex justify-content-center">
+                <div className="spinner-grow text-primary" role="status">
+                  <span className="visually-hidden">Loading...</span>
+                </div>
               </div>
             ) : (
               <ul class="list-group">
