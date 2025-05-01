@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
+import ProductCard from './components/ProductCard';
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -29,7 +30,7 @@ function App() {
     <>
       <main>
         <section className="py-4">
-          <div className="container d-flex flex-column align-items-center gap-2">
+          <div className="container d-flex flex-column gap-2">
             <h1>Chanchishop</h1>
             {error && (
               <div className="alert alert-danger" role="alert">
@@ -43,11 +44,11 @@ function App() {
                 </div>
               </div>
             ) : (
-              <ul className="list-group">
+              <div class="row row-cols-1 row-cols-md-3 g-4">
                 {products.map((product) => (
-                  <li key={product.id} className="list-group-item">{product.title}</li>
+                  <ProductCard key={product.id} product={product} />
                 ))}
-              </ul>
+              </div>
             )}
           </div>
         </section>
