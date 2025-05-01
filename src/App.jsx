@@ -9,6 +9,7 @@ function App() {
   useEffect(() => {
     const getProducts = async () => {
       try {
+        setError(false);
         setLoading(true);
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
@@ -31,20 +32,20 @@ function App() {
           <div className="container d-flex flex-column align-items-center gap-2">
             <h1>Chanchishop</h1>
             {error && (
-              <div class="alert alert-danger" role="alert">
+              <div className="alert alert-danger" role="alert">
                 Error fetching products.
               </div>
             )}
             {loading ? (
-              <div class="d-flex justify-content-center">
+              <div className="d-flex justify-content-center">
                 <div className="spinner-grow text-primary" role="status">
                   <span className="visually-hidden">Loading...</span>
                 </div>
               </div>
             ) : (
-              <ul class="list-group">
+              <ul className="list-group">
                 {products.map((product) => (
-                  <li class="list-group-item">{product.title}</li>
+                  <li key={product.id} className="list-group-item">{product.title}</li>
                 ))}
               </ul>
             )}
