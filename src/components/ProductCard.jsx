@@ -1,9 +1,11 @@
+import { Link } from "react-router";
+
 const ProductCard = ({ product }) => {
-  const { title, price, description, category, image, rating } = product;
+  const { id, title, price, description, category, image, rating } = product;
 
   return (
-    <div class="col">
-      <div className="card">
+    <div className="col">
+      <Link className="card" to={`/products/${id}`}>
         <img src={image} className="card-img-top object-fit-cover" alt={title} height={512} />
         <div className="card-body">
           <h4 className="card-title">{title.slice(0, 64)}</h4>
@@ -11,7 +13,7 @@ const ProductCard = ({ product }) => {
           <h6 className="card-title">{price}</h6>
           <p className="card-text">{description.slice(0, 128)}...</p>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }
