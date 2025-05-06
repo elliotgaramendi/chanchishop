@@ -1,4 +1,4 @@
-const AboutUs = () => {
+const About = () => {
   return (
     <section className="py-3 py-md-5">
       <div className="container">
@@ -49,4 +49,4 @@ const AboutUs = () => {
   );
 }
 
-export default AboutUs;
+export default About;
