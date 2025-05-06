@@ -20,7 +20,7 @@ const ProductDetail = () => {
   const { title, price, description, category, image } = product;
 
   useEffect(() => {
-    const getProducts = async (id) => {
+    const getProduct = async (id) => {
       try {
         setLoading(true);
         const response = await fetch(`https://fakestoreapi.com/products/${id}`);
@@ -33,7 +33,7 @@ const ProductDetail = () => {
       }
     };
 
-    getProducts(id);
+    getProduct(id);
   }, [id]);
 
   return (
