@@ -1,8 +1,6 @@
 import { Link } from "react-router";
-import useProductStore from "../store/product.store";
 
 const ProductCard = ({ product }) => {
-  const author = useProductStore(state => state.author);
   const { id, title, price, description, category, image, rating } = product;
 
   return (
@@ -14,7 +12,6 @@ const ProductCard = ({ product }) => {
           <h5 className="card-subtitle mb-2 text-body-secondary">{category} - {rating.rate} ⭐ {rating.count}</h5>
           <h6 className="card-title">{price}</h6>
           <p className="card-text">{description.slice(0, 128)}...</p>
-          <span className="badge text-bg-primary">{author}</span>
         </div>
       </Link>
     </div>

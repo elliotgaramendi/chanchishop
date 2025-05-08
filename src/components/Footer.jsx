@@ -1,4 +1,8 @@
+import useProductStore from "../store/product.store";
+
 const Footer = () => {
+  const setAuthor = useProductStore(state => state.setAuthor);
+
   return (
     <footer className="py-5">
       <div className="container">
@@ -41,6 +45,7 @@ const Footer = () => {
                 address</label> <input id="newsletter1" type="email" className="form-control" placeholder="Email address" />
                 <button className="btn btn-primary" type="button">Subscribe</button> </div>
             </form>
+            <button className="btn btn-outline-warning" type="submit" onClick={() => setAuthor('Anónimo')}>❌</button>
           </div>
         </div>
         <div className="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
