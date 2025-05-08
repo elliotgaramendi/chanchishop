@@ -2,6 +2,7 @@ import { Route, Routes } from 'react-router';
 import './App.css';
 import PrimaryLayout from './layouts/PrimaryLayout';
 import About from './pages/About';
+import Contact from './pages/Contact';
 import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 
@@ -12,6 +13,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/products/:id" element={<ProductDetail />} />
         <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<div>404</div>} />
     </Routes>
