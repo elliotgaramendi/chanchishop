@@ -5,13 +5,15 @@ const Contact = () => {
     name: '',
     email: '',
     phone: '',
-    comments: '',
+    message: '',
     acceptTerms: false,
   });
 
   const handleInput = (e) => {
-    console.log('Input: ' + e.target.value);
-    // setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   return (
@@ -26,26 +28,63 @@ const Contact = () => {
               className="form-control"
               placeholder="Name"
               id="floatingInputName"
+              name="name"
+              value={formData.name}
               onInput={handleInput}
               required
             />
             <label htmlFor="floatingInputName">Name</label>
           </div>
           <div className="form-floating">
-            <input type="email" className="form-control" id="floatingInputEmail" placeholder="name@example.com" required />
+            <input
+              type="email"
+              className="form-control"
+              placeholder="name@example.com"
+              id="floatingInputEmail"
+              name="email"
+              value={formData.email}
+              onInput={handleInput}
+              required
+            />
             <label htmlFor="floatingInputEmail">Email address</label>
           </div>
           <div className="form-floating">
-            <input type="phone" className="form-control" id="floatingInputPhone" placeholder="999888777" required />
+            <input
+              type="phone"
+              className="form-control"
+              placeholder="999888777"
+              id="floatingInputPhone"
+              name="phone"
+              value={formData.phone}
+              onInput={handleInput}
+              required
+            />
             <label htmlFor="floatingInputPhone">Phone</label>
           </div>
           <div className="form-floating">
-            <textarea className="form-control" placeholder="Leave a comment here" id="floatingTextarea" style={{ height: '100px' }}></textarea>
+            <textarea
+              className="form-control"
+              placeholder="Leave a comment here"
+              id="floatingTextarea"
+              name="message"
+              value={formData.message}
+              onInput={handleInput}
+              style={{ height: '100px' }}
+              required
+            ></textarea>
             <label htmlFor="floatingTextarea">Comments</label>
           </div>
           <div className="form-check text-start my-3">
-            <input className="form-check-input" type="checkbox" value="remember-me" id="checkDefault" required />
-            <label className="form-check-label" htmlFor="checkDefault">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="acceptTerms"
+              name="acceptTerms"
+              value={formData.acceptTerms}
+              onInput={handleInput}
+              required
+            />
+            <label className="form-check-label" htmlFor="acceptTerms">
               Accept conditions and terms of use
             </label>
           </div>
