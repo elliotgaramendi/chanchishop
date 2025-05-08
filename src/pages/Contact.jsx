@@ -80,8 +80,8 @@ const Contact = () => {
               className="form-check-input"
               id="acceptTerms"
               name="acceptTerms"
-              value={formData.acceptTerms}
-              onInput={handleInput}
+              checked={formData.acceptTerms}
+              onChange={(e) => setFormData({ ...formData, [e.target.name]: e.target.checked })}
               required
             />
             <label className="form-check-label" htmlFor="acceptTerms">
