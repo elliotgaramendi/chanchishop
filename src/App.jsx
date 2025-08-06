@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import Header from "./components/layouts/Header";
 import Home from "./pages/Home";
 import { getProducts } from "./services/products.service";
 
 function App() {
   const [products, setProducts] = useState([]);
+  const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
     (async () => {
@@ -13,7 +15,10 @@ function App() {
   }, []);
 
   return (
-    <Home products={products} />
+    <>
+      <Header shoppingCart={shoppingCart} />
+      <Home products={products} />
+    </>
   );
 }
 

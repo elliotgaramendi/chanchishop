@@ -1,6 +1,6 @@
 import Offcanvas from "./Offcanvas";
 
-const Header = () => {
+const Header = ({ shoppingCart }) => {
   return (
     <header>
       <nav className="navbar navbar-expand-md bg-body-tertiary">
@@ -30,7 +30,7 @@ const Header = () => {
           </a>
         </div>
       </nav>
-      <Offcanvas />
+      <Offcanvas data={shoppingCart} />
     </header>
   );
 };
