@@ -38,6 +38,11 @@ const Offcanvas = ({ data }) => {
             }))}
         </div>
       </div>
+      <div className="p-3 bg-body-secondary">
+        <h5 className="d-flex justify-content-between">Total: <span>${data.reduce((acc, item) => acc + item.price, 0).toFixed(2)}</span></h5>
+        <small>Costo de envío se calcula al finalizar la compra</small>
+        <button className="btn btn-primary w-100 mt-2">Checkout</button>
+      </div>
     </div>
   );
 };
