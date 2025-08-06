@@ -17,7 +17,7 @@ function App() {
   return (
     <>
       <Header shoppingCart={shoppingCart} />
-      <Home products={products} />
+      <Home products={products} setShoppingCart={setShoppingCart} />
     </>
   );
 }

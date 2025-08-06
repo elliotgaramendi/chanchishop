@@ -1,6 +1,6 @@
 import StarRating from "./StarRating";
 
-const ProductsList = ({ data }) => {
+const ProductsList = ({ data, setShoppingCart }) => {
   return (
     <section className="py-5">
       <div className="container">
@@ -20,7 +20,11 @@ const ProductsList = ({ data }) => {
                       <small>({rating.count})</small>
                     </div>
                     <h5 className="card-title text-primary fw-bold">${price}</h5>
-                    <button href={image} className="btn btn-primary mt-auto">
+                    <button
+                      href={image}
+                      className="btn btn-primary mt-auto"
+                      onClick={() => setShoppingCart((prev) => [...prev, item])}
+                    >
                       Add to Cart
                     </button>
                   </div>

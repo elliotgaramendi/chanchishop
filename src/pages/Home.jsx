@@ -1,9 +1,9 @@
 import ProductsList from "../components/ProductsList";
 
-const Home = ({ products }) => {
+const Home = ({ products, setShoppingCart }) => {
   return (
     <>
-      <ProductsList data={products} />
+      <ProductsList data={products} setShoppingCart={setShoppingCart} />
     </>
   );
 }

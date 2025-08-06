@@ -6,24 +6,30 @@ const Offcanvas = ({ data }) => {
         <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
       </div>
       <div className="offcanvas-body">
-        <div className="d-flex flex-column gap-2">
+        <div className="d-flex flex-column gap-4">
           {data.length === 0 ? (
             <div className="alert alert-warning" role="alert">
               Your cart is empty
             </div>
           ) : (
             data.map(item => {
+              const { id, title, price, category, image } = item;
               return (
-                <div className="card mb-3">
-                  <div className="row g-0">
-                    <div className="col-md-4">
-                      <img src="..." className="img-fluid rounded-start" alt="..." />
+                <div key={id} className="card">
+                  <div className="row">
+                    <div className="col-4 d-flex align-items-center justify-content-center">
+                      <img
+                        src={image}
+                        className="object-fit-contain p-2"
+                        alt={title}
+                        style={{ width: '100%', height: '100%' }}
+                      />
                     </div>
-                    <div className="col-md-8">
+                    <div className="col-8">
                       <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                        <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+                        <h5 className="card-subtitle fs-6">{category}</h5>
+                        <h6 className="card-title fs-5">{title}</h6>
+                        <span className="card-text fs-6">${price}</span>
                       </div>
                     </div>
                   </div>
