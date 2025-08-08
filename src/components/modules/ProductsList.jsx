@@ -1,4 +1,4 @@
-import StarRating from "./StarRating";
+import StarRating from "../elements/StarRating";
 
 const ProductsList = ({ data, setShoppingCart }) => {
   return (
