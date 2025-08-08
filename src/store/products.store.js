@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getProducts } from '../services/products.service';
+import { getProducts } from '../api/products.api';
 
 export const useProductsStore = create((set) => ({
   loading: false,
