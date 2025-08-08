@@ -1,10 +1,8 @@
-import { useStore } from "../../store/products.store";
 import StarRating from "../elements/StarRating";
 
 const ProductCard = ({ data, setShoppingCart }) => {
-  const inc = useStore((state) => state.inc);
-
   const { title, price, category, image, rating } = data;
+
   return (
     <div className="col">
       <div className="card h-100">
@@ -20,7 +18,7 @@ const ProductCard = ({ data, setShoppingCart }) => {
           <button
             href={image}
             className="btn btn-primary mt-auto"
-            onClick={() => {setShoppingCart((prev) => [...prev, data]); inc();}}
+            onClick={() => setShoppingCart((prev) => [...prev, data])}
           >
             Add to Cart
           </button>
