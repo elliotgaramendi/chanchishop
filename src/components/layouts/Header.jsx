@@ -1,6 +1,9 @@
+import { useProductsStore } from "../../store/products.store";
 import Offcanvas from "./Offcanvas";
 
-const Header = ({ shoppingCart }) => {
+const Header = () => {
+  const shoppingCart = useProductsStore(state => state.shoppingCart);
+
   return (
     <header className="fixed-top">
       <nav className="navbar navbar-expand-md bg-body-tertiary">

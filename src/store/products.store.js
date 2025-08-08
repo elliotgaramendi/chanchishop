@@ -18,6 +18,8 @@ export const useProductsStore = create((set) => ({
   },
   shoppingCart: [],
   setShoppingCart: (shoppingCart) => {
-    set({ shoppingCart });
+    set((state => ({
+      shoppingCart: [...state.shoppingCart, shoppingCart]
+    })));
   }
 }));

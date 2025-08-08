@@ -1,6 +1,8 @@
+import { useProductsStore } from "../../store/products.store";
 import StarRating from "../elements/StarRating";
 
-const ProductCard = ({ data, setShoppingCart }) => {
+const ProductCard = ({ data }) => {
+  const setShoppingCart = useProductsStore(state => state.setShoppingCart);
   const { title, price, category, image, rating } = data;
 
   return (
@@ -18,7 +20,7 @@ const ProductCard = ({ data, setShoppingCart }) => {
           <button
             href={image}
             className="btn btn-primary mt-auto"
-            onClick={() => setShoppingCart((prev) => [...prev, data])}
+            onClick={() => setShoppingCart(data)}
           >
             Add to Cart
           </button>

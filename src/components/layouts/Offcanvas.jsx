@@ -14,6 +14,7 @@ const Offcanvas = ({ data }) => {
           ) : (
             data.map(item => {
               const { id, title, price, category, image } = item;
+
               return (
                 <div key={id} className="card">
                   <div className="row">
