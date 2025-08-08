@@ -2,7 +2,7 @@ import Offcanvas from "./Offcanvas";
 
 const Header = ({ shoppingCart }) => {
   return (
-    <header>
+    <header className="fixed-top">
       <nav className="navbar navbar-expand-md bg-body-tertiary">
         <div className="container">
           <a className="navbar-brand" href="#">Chanchishop</a>

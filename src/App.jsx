@@ -17,7 +17,9 @@ function App() {
   return (
     <>
       <Header shoppingCart={shoppingCart} />
-      <Home products={products} setShoppingCart={setShoppingCart} />
+      <main className="py-4">
+        <Home products={products} setShoppingCart={setShoppingCart} />
+      </main>
     </>
   );
 }
