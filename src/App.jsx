@@ -1,24 +1,21 @@
 import { useEffect, useState } from "react";
 import Header from "./components/layouts/Header";
 import Home from "./pages/Home";
-import { getProducts } from "./services/products.service";
+import { useProductsStore } from "./store/products.store";
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const fetchProducts = useProductsStore(state => state.fetchProducts);
   const [shoppingCart, setShoppingCart] = useState([]);
 
   useEffect(() => {
-    (async () => {
-      const products = await getProducts();
-      setProducts(products);
-    })();
-  }, []);
+    fetchProducts();
+  }, [fetchProducts]);
 
   return (
     <>
       <Header shoppingCart={shoppingCart} />
       <main className="py-4">
-        <Home products={products} setShoppingCart={setShoppingCart} />
+        <Home setShoppingCart={setShoppingCart} />
       </main>
     </>
   );
